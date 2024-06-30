@@ -1,25 +1,46 @@
-import logo from './logo.svg';
+import React from 'react';
+import logo from './logo.jpg';
 import './App.css';
+import { getFullYear, getFooterCopy } from './utils';
+import Notifications from './Notifications';
+// import here //
 
-function App() {
+
+export default function App() {
+  // const isIndex = true;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div >
+      <Notifications />   {/* notification function */}
+      <header className="App-header" data-testid="app-header">
+        <img src={logo} className="App-logo" alt="Holberton logo" />
+        <h1>School dashboard</h1> {/* divider  */}
       </header>
+      <div className="divider"> </div>
+
+      <div > {/* login here  */}
+        <body className="App-body" data-testid="app-body">
+          <p>Login to access the full dashboard</p>
+          <label htmlFor="Email">Email:&nbsp;&nbsp;</label>
+          <input type="text" id="Email" />
+          &nbsp;&nbsp;&nbsp;
+          <label htmlFor="Password">Password:&nbsp;&nbsp;</label>
+          <input type="password" id="Password"></input>     &nbsp;&nbsp;<button type="submit">OK</button>
+          <div>
+          </div>
+        </body>
+      </div>
+      <div>
+        {/* footer  */}
+        <footer className="App-footer" data-testid="app-footer">
+          <div className="divider"> </div>    {/* divider  */}
+          <p>Current Year: {getFullYear()}</p>
+          <p>Footer Copy: {getFooterCopy(true)}</p>
+          <p>Copyright 2020 - holberton School</p>
+
+        </footer>
+      </div>
     </div>
+
   );
 }
 
-export default App;
